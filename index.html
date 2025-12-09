@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Contas a pagar</title>
+        <link rel="icon" type="image/png" href="imagens/icon_site.png" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="login-container">
+            <form id="login-form">
+                <img
+                    src="imagens/logo_site.png"
+                    alt="logo-site"
+                    style="width: 300px; height: auto; margin-left: 20px"
+                />
+                <h2>Login</h2>
+                <div class="form-group">
+                    <label for="username">E-mail</label>
+                    <input type="email" id="username" required />
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" required />
+                </div>
+                <button type="submit">Entrar</button>
+                <p id="login-error" class="error-message"></p>
+            </form>
+        </div>
+
+        <div id="app-container" class="hidden">
+            <header>
+                <h1>Contas a Pagar</h1>
+                <button id="logout-button">Sair</button>
+            </header>
+
+            <nav>
+                <button id="nav-add-bill">Cadastrar</button>
+                <button id="nav-list-bills" class="active">Contas</button>
+            </nav>
+
+            <main id="add-bill-section" class="hidden">
+                <div class="form-container">
+                    <h3>Adicionar Nova Conta</h3>
+                    <form id="add-bill-form">
+                        <div class="form-group">
+                            <label for="bill-description">Descrição</label>
+                            <input type="text" id="bill-description" placeholder="Ex: Referente a..." required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bill-amount">Valor Total (R$)</label>
+                            <input type="number" id="bill-amount" step="0.01" placeholder="1500.00" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bill-due-date">Data Vencimento (1ª Parcela)</label>
+                            <input type="date" id="bill-due-date" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bill-installments">Parcelas</label>
+                            <input type="number" id="bill-installments" value="1" min="1" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bill-invoice-number">Nº Nota Fiscal / Recibo</label>
+                            <input type="text" id="bill-invoice-number" placeholder="NF-e 12345" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bill-type">Classificação (Tipo)</label>
+                            <select id="bill-type">
+                                <option value="variavel">Variável</option>
+                                <option value="fixa">Fixa</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bill-frequency">Classificação (Frequência)</label>
+                            <select id="bill-frequency">
+                                <option value="pontual">Pontual</option>
+                                <option value="recorrente">Recorrente</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bill-discount">Descontos (R$)</label>
+                            <input type="number" id="bill-discount" step="0.01" value="0" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bill-interest">Juros (R$)</label>
+                            <input type="number" id="bill-interest" step="0.01" value="0" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bill-payment-method">Forma de Pagamento</label>
+                            <select id="bill-payment-method">
+                                <option value="">-- Não Pago --</option>
+                                <option value="pix">PIX</option>
+                                <option value="boleto">Boleto</option>
+                                <option value="cartao_credito">Cartão de Crédito</option>
+                                <option value="debito">Débito</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bill-payment-date">Data de Pagamento</label>
+                            <input type="date" id="bill-payment-date" />
+                        </div>
+
+                        <button type="submit" class="full-width">Adicionar Conta(s)</button>
+                    </form>
+                </div>
+            </main>
+
+            <main id="list-bills-section">
+                <div class="table-container">
+                    <h3>Contas Lançadas (Parcelas)</h3>
+                    <table id="bills-table">
+                        <thead>
+                            <tr>
+                                <th>Status</th>
+                                <th>Descrição</th>
+                                <th>Valor (R$)</th>
+                                <th>Vencimento</th>
+                                <th>Nº Nota</th>
+                                <th>Tipo</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bills-table-body"></tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>

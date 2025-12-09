@@ -1,0 +1,198 @@
+/* Estilos Gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh; /* garante altura total da viewport */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Container Principal */
+#login-container,
+#app-container {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin: 20px auto;
+}
+
+#login-container {
+    max-width: 400px;
+    width: calc(100% - 40px);
+    /* Centraliza a tela de login na viewport */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    z-index: 999;
+}
+
+#app-container {
+    max-width: 1000px; /* Aumentado para o app */
+}
+
+/* Ocultar elementos */
+.hidden {
+    display: none;
+}
+
+/* Estilos de Formulário */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Layout do Formulário de Contas com Grid */
+.form-container {
+    background-color: #fdfdfd;
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+#add-bill-form {
+    display: grid;
+    /* 4 colunas */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px 20px; /* 15px vertical, 20px horizontal */
+}
+
+.full-width {
+    grid-column: 1 / -1; /* Ocupa todas as colunas */
+    background-color: #28a745; /* Botão verde */
+}
+.full-width:hover {
+    background-color: #218838;
+}
+
+/* Formulário de Fornecedor (removido) */
+
+/* Estilos do Login */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Estilos do App */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+#logout-button {
+    background-color: #dc3545;
+}
+#logout-button:hover {
+    background-color: #c82333;
+}
+
+/* Navegação */
+nav {
+    margin: 20px 0;
+    border-bottom: 1px solid #ccc;
+}
+nav button {
+    background-color: transparent;
+    color: #007bff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-bottom: 3px solid transparent;
+}
+nav button.active {
+    border-bottom: 3px solid #007bff;
+    font-weight: bold;
+}
+
+/* Estilos da Tabela */
+.table-container {
+    margin-top: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    font-size: 14px;
+}
+
+table th {
+    background-color: #f9f9f9;
+    font-weight: bold;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Status da Tabela de Contas */
+.status {
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 12px;
+    color: white;
+    text-align: center;
+}
+.status-pago {
+    background-color: #28a745;
+}
+.status-pendente {
+    background-color: #ffc107;
+    color: #333;
+}
+.status-atrasado {
+    background-color: #dc3545;
+}
